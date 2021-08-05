@@ -1,6 +1,8 @@
 #include "run_length_encoding.h"
 
-char *dec_to_bin(int n) {
+char *dec_to_bin(char *num) {
+    char *eptr;
+    long int n = strtol(num, &eptr, 10);
     int closest_power = (int) floor(log2(n));
     char *bin = malloc((closest_power + 1) * sizeof(char *));
     for (int i = closest_power; i > -1; --i) {
