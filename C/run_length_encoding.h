@@ -6,7 +6,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-char *dec_to_bin(char *num);
+char *dec_to_bin(int n);
 char *rle_compression(char *text);
 
 #endif

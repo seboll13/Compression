@@ -4,7 +4,7 @@
 #define COMPRESSED_FILENAME "compressed.txt"
 
 int main() {
-    char* original = "0101000011111001010110000111";
+    char* original = "000110110000000000001111111111111111100110011111";
     
     clock_t start = clock();
     char* compressed = rle_compression(original);
