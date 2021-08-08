@@ -26,17 +26,21 @@ char* dec_to_bin(int n) {
 char* rle_compression(char* text) {
     int counter = 1;
     char curr_bit = text[0];
+    printf("%s", text);
     // allocate a memory slot for the compressed string
     char* compressed = malloc((long int)strlen(text) * sizeof(char *));
     for (int i = 0; i < (int)strlen(text); ++i) {
         char next_bit = text[i+1];
-        char* bin = dec_to_bin(counter);
+        //char* bin = dec_to_bin(counter);
         if (next_bit == curr_bit)
             ++counter;
         else {
-            strcat(compressed, bin);
+            char *buff = malloc(counter * sizeof(char *));
+            sprintf(buff, "%d", counter);
             strncat(compressed, &curr_bit, 1);
+            strcat(compressed, buff);
             counter = 1;
+            free(buff);
         }
         curr_bit = next_bit;
     }
